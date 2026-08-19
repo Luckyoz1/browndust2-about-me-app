@@ -1,0 +1,22 @@
+DOSSIER DES ILLUSTRATIONS
+=========================
+
+Dépose ici les images des personnages, au format WEBP.
+
+Le nom du fichier doit correspondre au champ "image" défini dans
+src/data/characters.js. Exemples :
+
+    justia        -> images/justia.webp        (fichier : justia.webp ici)
+    goblin-slayer -> images/goblin-slayer.webp (fichier : goblin-slayer.webp ici)
+
+Ce dossier "public" est copié tel quel par Vite : les chemins "images/xxx.webp"
+fonctionnent en local (npm run dev) comme en ligne (GitHub Pages).
+
+Conseils :
+- Format : WEBP, illustration en portrait (ex. 600 x 800 px).
+- Les images sont recadrées automatiquement (ratio ~3:4) pour rester alignées.
+- Image manquante = vignette avec les initiales du personnage (aucune erreur),
+  tu peux donc compléter au fur et à mesure.
+
+Pour utiliser un autre format (png/jpg), change l'extension dans
+src/data/characters.js pour le personnage concerné.
