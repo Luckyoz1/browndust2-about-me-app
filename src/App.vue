@@ -73,13 +73,16 @@ async function downloadImage() {
   try {
     const filename = `${(state.boardTitle || "about-me")
       .replace(/[^\w\u00C0-\u024F-]+/g, "-")
-      .toLowerCase()}-browndust2.png`;
+      .toLowerCase()}-browndust2.webp`;
 
     const blob = await toBlob(boardRef.value, {
-      pixelRatio: 2,
+      type: "image/webp",   
+      quality: 0.85,    
+      pixelRatio: 2,        
       backgroundColor: "#eaf3fb",
       cacheBust: true,
     });
+    
     if (!blob) throw new Error("La génération de l'image a échoué.");
 
     const url = URL.createObjectURL(blob);
@@ -103,7 +106,7 @@ onMounted(board.load);
 
 <template>
   <div class="page">
-    <div v-show="!exporting" class="toolbar">
+    <div class="toolbar">
       <div class="brand">Brown&nbsp;Dust&nbsp;II · <span>About me</span></div>
       <div class="tools">
         <button class="btn ghost" @click="board.addCell">＋ Add new </button>
