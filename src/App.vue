@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed, onMounted, nextTick } from "vue";
-import html2canvas from "html2canvas-pro";
+import { toBlob } from "html-to-image";
 import { useBoard } from "./composables/useBoard.js";
 import GalleryCell from "./components/GalleryCell.vue";
 import CharacterPicker from "./components/CharacterPicker.vue";
@@ -71,20 +71,16 @@ async function downloadImage() {
   await new Promise((r) => setTimeout(r, 80));
 
   try {
-    const canvas = await html2canvas(boardRef.value, {
-      backgroundColor: "#eaf3fb",
-      scale: 2,
-      useCORS: true,
-      logging: false,
-    });
     const filename = `${(state.boardTitle || "about-me")
       .replace(/[^\w\u00C0-\u024F-]+/g, "-")
       .toLowerCase()}-browndust2.png`;
 
-    const blob = await new Promise((resolve) =>
-      canvas.toBlob(resolve, "image/png")
-    );
-    if (!blob) throw new Error("La génération de l'image a échoué (toBlob a renvoyé null).");
+    const blob = await toBlob(boardRef.value, {
+      pixelRatio: 2,
+      backgroundColor: "#eaf3fb",
+      cacheBust: true,
+    });
+    if (!blob) throw new Error("La génération de l'image a échoué.");
 
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
