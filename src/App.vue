@@ -77,8 +77,8 @@ async function downloadImage() {
 
     const blob = await toBlob(boardRef.value, {
       type: "image/webp",   
-      quality: 0.85,    
-      pixelRatio: 2,        
+      quality: 0.75,    
+      pixelRatio: 1.5,        
       backgroundColor: "#eaf3fb",
       cacheBust: true,
     });
