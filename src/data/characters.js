@@ -27,7 +27,7 @@ export const characters = [
   { id: "helena", name: "Helena", image: "images/helena.webp" },
   { id: "hikage", name: "Hikage", image: "images/hikage.webp" },
   { id: "ingrid", name: "Ingrid", image: "images/ingrid.webp" },
-  { id: "ikagura", name: "Ikagura", image: "image/ikagura.webp"},
+  { id: "ikagura", name: "Ikagura", image: "images/ikagura.webp"},
   { id: "jayden", name: "Jayden", image: "images/jayden.webp" },
   { id: "julie", name: "Julie", image: "images/julie.webp" },
   { id: "justia", name: "Justia", image: "images/justia.webp" },
